@@ -1,15 +1,41 @@
 <mat-sidenav-container fullscreen >
 
-  <mat-sidenav #sidenav>
-    <h1>Sidenav</h1>
+  <mat-sidenav #sidenav mode="push">
+
+        <mat-toolbar color="indigo">
+          <span>Menú</span>
+          <span class="spacer"></span>
+
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="open_in_new"></mat-icon>
+          </button>
+        </mat-toolbar>
+
+        <mat-nav-list role="list">
+        <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()"><mat-icon mat-list-icon>label</mat-icon> Listado de Héroes</a>
+        <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()"><mat-icon mat-list-icon>add</mat-icon> Añadir Héroe</a>
+        <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()"><mat-icon mat-list-icon>search</mat-icon> Buscar Héroes</a>
+        </mat-nav-list>
+
   </mat-sidenav>
 
   <mat-toolbar>
     <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_open"></mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="pinch"></mat-icon>
+    </button>
+
+
+    <span class="spacer"></span>
+    <button mat-button >
+      Logout <mat-icon>input</mat-icon>
     </button>
   </mat-toolbar>
 
-</mat-sidenav-container>
 
-<div >Please open on Stackblitz to see result</div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+</mat-sidenav-container>
