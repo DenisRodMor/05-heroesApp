@@ -4,7 +4,7 @@
   <mat-card-title>{{item.alter_ego}}</mat-card-title>
 
 
-    <img mat-card-image src="assets/heroes/{{item.id}}.jpg" >
+    <img mat-card-image [src]="item | imagen" >
 
     <mat-card-content>
       <h3>{{item.publisher}}</h3>
